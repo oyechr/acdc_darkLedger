@@ -14,7 +14,6 @@ export const DarkLedger: FC<IDarkLedgerProps> = (props) => {
     const targetResponse = await fetch('https://darkledgerstorage.blob.core.windows.net/position/position.json')
     const targetData = await targetResponse.json()
 
-
     console.log({ villainData, targetData })
     setTargetPosition(targetData)
     setVillainPosition(villainData)
@@ -29,7 +28,7 @@ export const DarkLedger: FC<IDarkLedgerProps> = (props) => {
   useEffect(() => {
     const interval = setInterval(() => {
       getPositions()
-    }, 10000)
+    }, 11000)
     return () => clearInterval(interval)
   }, [])
 
@@ -46,11 +45,7 @@ export const DarkLedger: FC<IDarkLedgerProps> = (props) => {
   const TargetMarker = () => (
     <AdvancedMarker position={targetPosition}>
       <div className='targetDiv'>
-        <img
-          src='https://ik.imagekit.io/hpapi/harry.jpg'
-          alt='target'
-          className='target'
-        />
+        <img src='https://ik.imagekit.io/hpapi/harry.jpg' alt='target' className='target' />
         <div className='pulse'></div>
         <div style={{ textAlign: 'center', marginTop: '8px', color: '#000', fontWeight: 'bold' }}>Harry Potter</div>
       </div>
@@ -61,9 +56,12 @@ export const DarkLedger: FC<IDarkLedgerProps> = (props) => {
     return <div>Loading...</div>
   } else {
     return (
-      <div style={{
-        height: '100vh', width: '100%'
-      }}>
+      <div
+        style={{
+          height: '100vh',
+          width: '100%'
+        }}
+      >
         <header>
           <p>
             <strong>Logged in as:</strong> Lord Voldemort
@@ -91,7 +89,9 @@ export const DarkLedger: FC<IDarkLedgerProps> = (props) => {
           </Map>
         </APIProvider>
         <footer>
-          <p><strong>Reward:</strong> 1337 MBTC (Magic BITCOIN)</p>
+          <p>
+            <strong>Reward:</strong> 1 MBTC (Magic BITCOIN)
+          </p>
           <p style={{ fontSize: '12px' }}>powered by DarkLedger © 2025</p>
         </footer>
       </div>
