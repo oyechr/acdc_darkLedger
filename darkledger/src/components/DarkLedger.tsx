@@ -7,19 +7,32 @@ export const DarkLedger: FC<IDarkLedgerProps> = (props) => {
   const [loading, setLoading] = useState(true)
   const [villainPosition, setVillainPosition] = useState({ lat: 0, lng: 0 })
   const [targetPosition, setTargetPosition] = useState({ lat: 0, lng: 0 })
+  const [error, setError] = useState(null);
 
   const getPositions = async () => {
-    const villainResponse = await fetch('https://darkledgerstorage.blob.core.windows.net/position/coordinates.json')
-    const villainData = await villainResponse.json()
-    const targetResponse = await fetch('https://darkledgerstorage.blob.core.windows.net/position/position.json')
-    const targetData = await targetResponse.json()
+    try {
+      const villainResponse = await fetch('https://darkledgerstorage.blob.core.windows.net/position/coordinates.json');
+      if (!villainResponse.ok) {
+        throw new Error(`Failed to fetch villain coordinates: ${villainResponse.statusText}`);
+      }
+      const villainData = await villainResponse.json();
 
-    console.log({ villainData, targetData })
-    setTargetPosition(targetData)
-    setVillainPosition(villainData)
-    setLoading(false)
-    return { villainData, targetData }
-  }
+      const targetResponse = await fetch('https://darkledgerstorage.blob.core.windows.net/position/position.json');
+      if (!targetResponse.ok) {
+        throw new Error(`Failed to fetch target positions: ${targetResponse.statusText}`);
+      }
+      const targetData = await targetResponse.json();
+
+      console.log({ villainData, targetData });
+      setTargetPosition(targetData);
+      setVillainPosition(villainData);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching positions:', error);
+      setError(error.message);
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     getPositions()
