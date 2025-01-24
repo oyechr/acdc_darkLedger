@@ -1,0 +1,8 @@
+{
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/d2286c4c-d308-40ef-830c-9e70e9a02009/resourceGroups/darkLedger/providers/Microsoft.Web/sites/darkledger",
+  "appService.deploySubpath": "darkledger/build"
+}
