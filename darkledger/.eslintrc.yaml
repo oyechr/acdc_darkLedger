@@ -26,7 +26,7 @@ rules:
   "react/display-name": 0
   "no-compare-neg-zero": 1
   "no-unused-vars": 1
-  "no-console": 1
+  "no-console": 0
   "default-case": 0
   "eqeqeq": 1
   "max-classes-per-file": 1
