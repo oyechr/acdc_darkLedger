@@ -9,7 +9,7 @@ export const DarkLedger: FC<IDarkLedgerProps> = (props) => {
 
   const CustomizedMarker = () => (
     <AdvancedMarker position={position}>
-      <Pin background={'#FBBC04'} glyphColor={'#000'} borderColor={'#000'} />
+      <Pin background={'tomato'} glyphColor={'#000'} borderColor={'#000'} />
     </AdvancedMarker>
   )
 
