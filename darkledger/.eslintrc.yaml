@@ -16,7 +16,7 @@ parserOptions:
 rules:
   "@typescript-eslint/interface-name-prefix": 0
   "@typescript-eslint/no-explicit-any": 0
-  "@typescript-eslint/no-unused-vars": 1
+  "@typescript-eslint/no-unused-vars": 0
   "@typescript-eslint/member-delimiter-style": 0
   "@typescript-eslint/explicit-function-return-type": 0
   "@typescript-eslint/explicit-module-boundary-types": 0
@@ -25,7 +25,7 @@ rules:
   "no-inferrable-types": 0
   "react/display-name": 0
   "no-compare-neg-zero": 1
-  "no-unused-vars": 1
+  "no-unused-vars": 0
   "no-console": 0
   "default-case": 0
   "eqeqeq": 1

@@ -15,7 +15,10 @@ export const DarkLedger: FC<IDarkLedgerProps> = (props) => {
 
   return (
     <div style={{ height: '100vh', width: '100%' }}>
-      <APIProvider apiKey={'AIzaSyCVob_fs-zku-rc9G7R1dBYk82LXe0IbpI'} onLoad={() => console.log('Maps API has loaded.')}>
+      <APIProvider
+        apiKey={'AIzaSyCVob_fs-zku-rc9G7R1dBYk82LXe0IbpI'}
+        onLoad={() => console.log('Maps API has loaded.')}
+      >
         <Map
           defaultZoom={13}
           mapId='ba44130e3947cd5c'
